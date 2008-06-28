@@ -11,7 +11,7 @@ module BugWalkSimulation
       end
       
       def new_bug(options = {})
-        options = options.merge :moves => [:north, :south, :east, :west, :northeast, :northwest, :southeast, :southwest] unless options[:moves]
+        options = options.merge :moves => [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]] unless options[:moves]
         Bug.new options
       end
 
