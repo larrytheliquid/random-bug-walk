@@ -1,8 +1,8 @@
 class Bug  
   attr_reader :moves
   
-  def initialize(moves)
-    @moves = moves
+  def initialize(options = {})
+    @moves = options[:moves]
   end
   
   def move
