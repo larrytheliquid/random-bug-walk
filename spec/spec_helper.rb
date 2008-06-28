@@ -6,8 +6,6 @@ module BugWalkSimulation
       def new_simulator(options = {})
         bug = new_bug
         floor = new_floor
-        options = options.merge :bug           => bug.class    unless options[:bug]
-        options = options.merge :floor         => floor.class  unless options[:floor]
         options = options.merge :height        => floor.height unless options[:height]
         options = options.merge :width         => floor.width  unless options[:width]                
         options = options.merge :maximum_steps => 4            unless options[:maximum_steps]

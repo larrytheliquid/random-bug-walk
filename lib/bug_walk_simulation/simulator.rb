@@ -1,13 +1,15 @@
-class Simulator
-  attr_reader :floor, :bug, :maximum_steps
+module BugWalkSimulation
+  class Simulator
+    attr_reader :floor, :bug, :maximum_steps
   
-  def initialize(options = {})    
-    @floor = options[:floor].new(:height => options[:height], :width => options[:width])
-    @bug = options[:bug].new(:floor => floor, :location => floor.random_tile, :moves => options[:moves])
-    @maximum_steps = options[:maximum_steps]
-  end
+    def initialize(options = {})    
+      @floor = Floor.new(:height => options[:height], :width => options[:width])
+      @bug = Bug.new(:floor => floor, :location => floor.random_tile, :moves => options[:moves])
+      @maximum_steps = options[:maximum_steps]
+    end
   
-  def steps
-    @floor.steps
+    def steps
+      @floor.steps
+    end
   end
 end
