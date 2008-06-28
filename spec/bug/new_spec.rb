@@ -11,8 +11,8 @@ module BugWalkSimulation
       new_bug(:location => [3, 4]).location.should == [3, 4]
     end
     
-    it "should have settable moves" do
-      new_bug(:moves => [[-1, -2]]).moves.should == [[-1, -2]]
+    it "should have settable possible moves" do
+      new_bug(:possible_moves => [[-1, -2]]).possible_moves.should == [[-1, -2]]
     end
   end
 end
