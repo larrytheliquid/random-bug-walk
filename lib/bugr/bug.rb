@@ -1,7 +1,11 @@
-class Bug
-  MOVES = [:north, :south, :east, :west, :northeast, :northwest, :southeast, :southwest]
+class Bug  
+  attr_reader :moves
+  
+  def initialize(moves)
+    @moves = moves
+  end
   
   def move
-    MOVES[ rand(MOVES.size) ]
+    moves[ rand(moves.size) ]
   end
 end

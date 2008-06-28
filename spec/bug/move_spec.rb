@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Bug, "#move" do
   before(:each) do
-    @bug = Bug.new
+    @bug = Factory.new_bug
   end
   
   it "should be able to move north" do
