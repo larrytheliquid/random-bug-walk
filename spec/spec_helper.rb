@@ -18,6 +18,7 @@ module BugWalkSimulation
       options = options.merge :location          => [0, 0]                                                                 unless options[:location]        
       options = options.merge :possible_moves    => [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]] unless options[:possible_moves]
       options = options.merge :moves_lifetime    => 1337                                                                   unless options[:moves_lifetime]
+      options = options.merge :tired             => lambda {|bug| false }                                                  unless options[:tired]
       Bug.new options
     end
 

@@ -20,6 +20,13 @@ module BugWalkSimulation
       new_bug(:moves_lifetime => moves_lifetime).moves_lifetime.should == moves_lifetime
     end
     
+    it "should have a settable goal function" do
+      goal_achieved = lambda{|bug| true }
+      new_bug(:goal => goal_achieved).goal.should == goal_achieved
+      goal_not_achieved = lambda{|bug| false }
+      new_bug(:goal => goal_not_achieved).goal.should == goal_not_achieved
+    end
+    
     it "should have 0 number of moves by default" do
       new_bug.number_of_moves.should == 0
     end

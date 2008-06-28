@@ -2,10 +2,29 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 module BugWalkSimulation  
   describe Bug, "#move" do    
-    describe "when number of moves equals the bugs lifetime" do
+    describe "when dead" do
       before(:each) do
         @bug = new_bug(:moves_lifetime => 1)
         @bug.stubs(:number_of_moves).returns(1)
+      end
+      
+      it "should be nil" do
+        @bug.move.should be_nil
+      end
+      
+      it "should not increment the number of moves" do
+        lambda { @bug.move }.should_not change(@bug, :number_of_moves)
+      end
+      
+      it "should not step on a tile" do
+        @bug.floor.expects(:step_on_tile).never
+        @bug.move
+      end
+    end
+    
+    describe "when goal has been achieved" do
+      before(:each) do
+        @bug = new_bug(:goal => lambda {|bug| true })
       end
       
       it "should be nil" do
