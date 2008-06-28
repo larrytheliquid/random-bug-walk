@@ -11,7 +11,7 @@ module BugWalkSimulation
     end
 
     it "should delegate to its Floors steps" do
-      @simulator.floor.should_receive(:steps).and_return(1337)
+      @simulator.floor.expects(:steps).returns(1337)
       @simulator.steps.should == 1337
     end
   end

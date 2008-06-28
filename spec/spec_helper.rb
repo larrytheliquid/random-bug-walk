@@ -1,5 +1,9 @@
 require File.dirname(__FILE__) + '/../lib/bug_walk_simulation'
 
+Spec::Runner.configure do |config|  
+  config.mock_with :mocha
+end
+
 module BugWalkSimulation  
   class Factory
     class << self

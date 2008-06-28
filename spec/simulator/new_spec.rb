@@ -15,9 +15,7 @@ module BugWalkSimulation
     end
     
     it "should set its bug location to a random Floor tile" do
-      floor = mock("floor", :height => 1, :width => 1, :class => Floor)
-      Floor.should_receive(:new).at_least(:once).and_return(floor)
-      floor.should_receive(:random_tile).and_return([0, 0])
+      Floor.any_instance.expects(:random_tile).returns([0, 0])
       Factory.new_simulator.bug.location.should == [0, 0]
     end
     
