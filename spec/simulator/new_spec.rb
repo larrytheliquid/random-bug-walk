@@ -17,11 +17,6 @@ module BugWalkSimulation
     it "should set its bug location to a random Floor tile" do
       Floor.any_instance.expects(:random_tile).returns([0, 0])
       new_simulator.bug.location.should == [0, 0]
-    end
-    
-    it "should have a maximum_steps limit" do
-      maximum_steps = 1337
-      new_simulator(:maximum_steps => maximum_steps).maximum_steps.should == maximum_steps
-    end
+    end        
   end
 end
