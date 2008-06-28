@@ -19,7 +19,7 @@ module BugWalkSimulation
     end
     
     def explored?
-      tiles.all? {|row| !row.include?(0) }
+      !tiles.any? {|row| row.include?(0) }
     end
     
     def step_on(i, j)
