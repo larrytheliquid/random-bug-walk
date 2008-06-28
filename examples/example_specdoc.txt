@@ -1,0 +1,121 @@
+BugWalkSimulation::Bug#dead?
+- should be false when the number of moves is less than the moves lifetime
+- should be true when the number of moves is greater than the moves lifetime
+- should be true when the number of moves is equal to the moves lifetime
+
+BugWalkSimulation::Bug#has_achieved_goal?
+- should be false when no goal function exists
+- should be false when the goal function is false
+- should be true whent the goal function is true
+- should yield the bug to the goal function
+
+BugWalkSimulation::Bug#move when dead
+- should be nil
+- should not increment the number of moves
+- should not step on a tile
+
+BugWalkSimulation::Bug#move when goal has been achieved
+- should be nil
+- should not increment the number of moves
+- should not step on a tile
+
+BugWalkSimulation::Bug#move when the move thought of is not possible
+- should continue thinking of new moves until a possible one is thought of
+- should return the location of the first valid move thought of
+- should change location to the first valid move thought of
+
+BugWalkSimulation::Bug#move when the move thought of is possible
+- should think of a move
+- should increment the number of moves
+- should step on a tile
+- should return the location of the tile stepped on
+- should change location to the tile stepped on
+
+BugWalkSimulation::Bug.new
+- should have a settable floor
+- should have a settable location
+- should have settable possible moves
+- should have settable a moves lifetime limit
+- should have a settable goal function
+- should have 0 number of moves by default
+
+BugWalkSimulation::Bug#think_of_move, with moves north, south, east, west, northeast, northwest, southeast, and southwest
+- should be able to think of move north
+- should be able to think of move south
+- should be able to think of move west
+- should be able to think of move east
+- should be able to think of move northwest
+- should be able to think of move northeast
+- should be able to think of move southwest
+- should be able to think of move southeast
+
+BugWalkSimulation::Bug#walk
+- should move until it cannot
+- should return the number of moves made
+
+BugWalkSimulation::Floor#explored?
+- should be false by default
+- should be false with partial exploration
+- should be true with complete exploration
+
+BugWalkSimulation::Floor#height
+- should be equal to the initialized height of the floor
+
+BugWalkSimulation::Floor.new#tiles
+- should be a kind of Array
+- should contain kinds of sub-arrays
+- should have all 0s by default
+
+BugWalkSimulation::Floor#random_tile
+- should be a kind of Array
+- should have two elements
+- should contain integers
+- should be an existing tile
+
+BugWalkSimulation::Floor#step_on_tile when stepping outside the bounds of the floor
+- should be nil when negatively out of height bounds
+- should be nil when negatively out of width bounds
+- should be nil when negatively out of height and width bounds
+- should be nil when positively out of height bounds
+- should be nil when positively out of width bounds
+- should be nil when positively out of height and width bounds
+
+BugWalkSimulation::Floor#step_on_tile when stepping inside the bounds of the floor
+- should be the incremented number for that tile
+- should increment the tile
+
+BugWalkSimulation::Floor#steps by default
+- should be 0
+
+BugWalkSimulation::Floor#steps with traveled floors
+- should be the total number of steps on each tile
+
+BugWalkSimulation::Floor#width
+- should be equal to the initialized width of the floor
+
+BugWalkSimulation::Simulator.new
+- should have a Floor
+- should have a Bug
+- should assign a bug to a Floor
+
+BugWalkSimulation::Simulator.new with a randomly set Bug
+- should set its bug location to a random Floor tile
+- should make the initial location stepped on
+
+BugWalkSimulation::Simulator.new with an explicitly set Bug
+- should set its bug location to the specified Floor tile
+- should make the initial location stepped on
+
+BugWalkSimulation::Simulator#simulate when the bug dies
+- should complete
+
+BugWalkSimulation::Simulator#simulate when the bug reaches its goal
+- should complete
+
+BugWalkSimulation::Simulator#steps
+- should be 1 by default
+- should delegate to its Floors steps
+
+Finished in 0.148626 seconds
+
+70 examples, 0 failures
