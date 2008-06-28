@@ -4,8 +4,9 @@ module BugWalkSimulation
   class Factory
     class << self
       def new_simulator(options = {})
-        options = options.merge :bug   => new_bug   unless options[:bug]        
-        options = options.merge :floor => new_floor unless options[:floor]
+        options = options.merge :bug           => new_bug   unless options[:bug]        
+        options = options.merge :floor         => new_floor unless options[:floor]
+        options = options.merge :maximum_steps => 4         unless options[:maximum_steps]        
         Simulator.new options
       end
       
