@@ -25,5 +25,9 @@ module BugWalkSimulation
     def step_on(i, j)
       tiles[i][j] += 1 rescue nil
     end
+    
+    def random_tile
+      [rand(height), rand(width)]
+    end
   end
 end

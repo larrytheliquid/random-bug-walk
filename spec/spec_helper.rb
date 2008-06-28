@@ -4,9 +4,14 @@ module BugWalkSimulation
   class Factory
     class << self
       def new_simulator(options = {})
-        options = options.merge :bug           => new_bug   unless options[:bug]        
-        options = options.merge :floor         => new_floor unless options[:floor]
-        options = options.merge :maximum_steps => 4         unless options[:maximum_steps]        
+        bug = new_bug
+        floor = new_floor
+        options = options.merge :bug           => bug.class    unless options[:bug]
+        options = options.merge :floor         => floor.class  unless options[:floor]
+        options = options.merge :height        => floor.height unless options[:height]
+        options = options.merge :width         => floor.width  unless options[:width]                
+        options = options.merge :maximum_steps => 4            unless options[:maximum_steps]
+        options = options.merge :moves         => bug.moves    unless options[:moves]        
         Simulator.new options
       end
       
@@ -17,7 +22,7 @@ module BugWalkSimulation
 
       def new_floor(options = {})
         options = options.merge :height => 2 unless options[:height]
-        options = options.merge :width  => 2 unless options[:width]  
+        options = options.merge :width  => 2 unless options[:width]
         Floor.new options
       end          
     end

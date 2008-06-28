@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 module BugWalkSimulation  
   describe Simulator, "#steps" do
     before(:each) do
-      @simulator = Factory.new_simulator(:floor => Factory.new_floor)
+      @simulator = Factory.new_simulator
     end
     
     it "should be 0 by default" do
