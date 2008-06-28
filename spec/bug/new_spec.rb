@@ -19,5 +19,9 @@ module BugWalkSimulation
       moves_lifetime = 1337
       new_bug(:moves_lifetime => moves_lifetime).moves_lifetime.should == moves_lifetime
     end
+    
+    it "should have 0 number of moves by default" do
+      new_bug.number_of_moves.should == 0
+    end
   end
 end

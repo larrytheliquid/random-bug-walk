@@ -22,8 +22,9 @@ module BugWalkSimulation
       !tiles.any? {|row| row.include?(0) }
     end
     
-    def step_on_tile(i, j)
-      tiles[i][j] += 1 rescue nil
+    def step_on_tile(tile)
+      return nil if tile.any? {|t| t < 0 }
+      tiles[tile.first][tile.last] += 1 rescue nil
     end
     
     def random_tile
