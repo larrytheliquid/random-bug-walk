@@ -16,6 +16,7 @@ Benchmark.bm(15) {|reporter| reporter.report("Random bug walk") { simulator.simu
 puts "[#{Time.now}] Simulation completed"
 
 puts "Bug moves: #{simulator.bug.number_of_moves}"
+puts "Bug final location: #{simulator.bug.location.inspect}"
 
 puts "Floor density:"
 
