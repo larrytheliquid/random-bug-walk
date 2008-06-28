@@ -15,7 +15,7 @@ module BugWalkSimulation
     end
     
     def move
-      unless number_of_moves >= moves_lifetime
+      unless dead? 
         thought_of_move = think_of_move
         tile = [location.first + thought_of_move.first, location.last + thought_of_move.last]
         if floor.step_on_tile tile
@@ -26,5 +26,9 @@ module BugWalkSimulation
         end
       end
     end
+    
+    def dead?
+      number_of_moves >= moves_lifetime
+    end    
   end
 end

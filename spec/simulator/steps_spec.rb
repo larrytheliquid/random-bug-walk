@@ -6,8 +6,8 @@ module BugWalkSimulation
       @simulator = new_simulator
     end
     
-    it "should be 0 by default" do
-      @simulator.steps.should == 0
+    it "should be 1 by default" do
+      @simulator.steps.should == 1
     end
 
     it "should delegate to its Floors steps" do
