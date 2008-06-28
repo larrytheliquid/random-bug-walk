@@ -22,7 +22,7 @@ module BugWalkSimulation
       !tiles.any? {|row| row.include?(0) }
     end
     
-    def step_on(i, j)
+    def step_on_tile(i, j)
       tiles[i][j] += 1 rescue nil
     end
     
