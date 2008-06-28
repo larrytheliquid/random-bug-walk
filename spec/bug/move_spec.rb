@@ -2,8 +2,9 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Bug, "#move" do
   before(:each) do
-    @bug = Factory.new_bug
+    @bug = Factory.new_bug([:north, :south, :east, :west, :northeast, :northwest, :southeast, :southwest])
     @timeout = 3
+    srand(1337)
   end
   
   it "should be able to move north" do
