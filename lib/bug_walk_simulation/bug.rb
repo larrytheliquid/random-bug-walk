@@ -11,10 +11,11 @@ module BugWalkSimulation
       @goal              = options[:goal]      
       @number_of_moves   = 0
     end
-
-    def think_of_move
-      possible_moves[ rand(possible_moves.size) ]
-    end
+    
+    def walk
+      loop { break unless move }
+      number_of_moves
+    end    
     
     def move
       unless dead? || has_achieved_goal?
@@ -27,6 +28,10 @@ module BugWalkSimulation
           move
         end
       end
+    end
+    
+    def think_of_move
+      possible_moves[ rand(possible_moves.size) ]
     end
     
     def dead?
