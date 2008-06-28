@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 module BugWalkSimulation  
   describe Bug, "#think_of_move, with moves north, south, east, west, northeast, northwest, southeast, and southwest" do
     before(:each) do
-      @bug = Factory.new_bug(:think_of_moves => [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]])
+      @bug = new_bug(:think_of_moves => [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]])
       @timeout = 3
       srand(1337)
     end

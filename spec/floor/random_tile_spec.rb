@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 module BugWalkSimulation  
   describe Floor, "#random_tile" do
     before(:each) do
-      @floor = Factory.new_floor
+      @floor = new_floor
     end
 
     it "should be a kind of Array" do

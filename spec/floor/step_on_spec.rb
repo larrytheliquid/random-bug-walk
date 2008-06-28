@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 module BugWalkSimulation  
   describe Floor, "#step_on" do
     before(:each) do
-      @floor = Factory.new_floor(:height => 1, :width => 1)
+      @floor = new_floor(:height => 1, :width => 1)
     end
     
     describe "when stepping outside the bounds of the floor" do
