@@ -8,7 +8,7 @@ module BugWalkSimulation
       @moves    = options[:moves]
     end
 
-    def move
+    def think_of_move
       moves[ rand(moves.size) ]
     end
   end
